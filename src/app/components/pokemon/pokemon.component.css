@@ -1,0 +1,208 @@
+* {
+    margin: 15px;
+}
+
+#buscador {
+    text-align: center;
+}
+
+input {
+    width: 30%;
+    font-size: 18px;
+}
+
+button {
+    padding: 5px 20px;
+}
+
+i {
+    font-size: 16px;
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+.resultados {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.pokemons {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px gray;
+}
+
+
+.pokemons:hover {
+    cursor: pointer;
+}
+
+.pokemons img {
+    width: 40%;
+    margin: 0px;
+}
+
+.pokemons div {
+    background-color: lightgray;
+    margin: 0px;
+}
+
+.pokemons h4 {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.pokemons p {
+    font-size: 14px;
+}
+
+.seleccionado {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    margin: 0;
+    height: 50%;
+}
+
+.seleccionado button {
+    height: 30px;
+    border: 1px solid lightgray;
+}
+
+.closePok {
+    position: absolute;
+    bottom: 0;
+    font-size: 16px;
+    width: 10%;
+}
+
+
+.info {
+    width: 40%;
+}
+
+.seleccionado img {
+    width: 25%;
+    object-fit: contain;
+}
+
+.seleccionado h2 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.seleccionado span {
+    font-weight: 300;
+}
+
+.seleccionado p {
+    font-size: 16px;
+}
+
+.datos {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.verMas {
+    margin-left: 45%;
+    font-size: 18px;
+}
+
+.type {
+    background-color: orange;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.imgyDato {
+    display: flex;
+}
+
+@media (max-width: 850px) {
+
+    .resultados {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .closePok {
+        width: 25%;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+    .resultados {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    input {
+        width: 50%;
+    }
+
+    .imgyDato {
+        text-align: center;
+        display: block;
+    }
+
+    .seleccionado {
+        height: 60%;
+    }
+
+    .seleccionado img {
+        width: 40%;
+        margin: 0;
+    }
+
+    .info {
+        width: 100%;
+    }
+
+    .datos {
+        justify-content: space-around;
+        margin: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .seleccionado {
+        display: block;
+    }
+
+    .seleccionado button {
+        position: absolute;
+    }
+
+    .aftBtn {
+        right: 0;
+        top: 0;
+    }
+
+    .closePok {
+        margin-left: 35%;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .resultados {
+        display: block;
+    }
+
+    input {
+        width: 75%;
+    }
+}

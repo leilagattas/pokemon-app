@@ -1,0 +1,51 @@
+<div>
+    <div id="buscador">
+        <input type="search" id="search" placeholder="Buscar Pokemon..."
+            (keyup)="searchTerm$.next($any($event.target).value)" /><i class="fa fa-search"></i>
+    </div>
+    <app-spinner *ngIf="loading"></app-spinner>
+    <div *ngIf="pokeResFilt.length == 0 && !loading">
+        No se encontraron resultados para la búsqueda especificada..
+    </div>
+    <div class="resultados" *ngIf="!loading">
+        <div class="pokemons" (click)="mostrarSelecc(poke.url)" *ngFor="let poke of pokeResFilt | slice:0:cantMostrar">
+            <div>
+                <img src={{poke.imageUrl}} alt="">
+            </div>
+            <h4>{{poke.name | titlecase}}</h4>
+            <p>#{{poke.id}}</p>
+        </div>
+    </div>
+    <button *ngIf="maxOk && pokeResFilt.length > 20" class="verMas" (click)="cargarMas()">Ver más...</button>
+    <div class="seleccionado" *ngIf="seleccionado">
+        <button (click)="mostrarSelecc(-1)" [ngClass]="{'hide': !okBut}">#{{seleccNumBef}}</button>
+        <div class="imgyDato">
+            <img src={{seleccUrlImg}} alt="">
+            <div class="info">
+                <h2>{{seleccName | titlecase}} <span>#{{seleccId}}</span></h2>
+                <div class="datos">
+                    <div>
+                        <h3>Height</h3>
+                        <p>{{seleccHeight}}</p>
+                    </div>
+                    <div>
+                        <h3>Type</h3>
+                        <p class="type" *ngFor="let type of seleccType">{{type | titlecase}}</p>
+                    </div>
+                </div>
+                <div class="datos">
+                    <div>
+                        <h3>Weight</h3>
+                        <p>{{seleccWeight}}</p>
+                    </div>
+                    <div>
+                        <h3>Abilities</h3>
+                        <p *ngFor="let ability of seleccAbility">{{ ability | titlecase}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="aftBtn" (click)="mostrarSelecc(1)" [ngClass]="{'hide': !okButAft}">#{{seleccNumAft}}</button>
+        <button class="closePok" (click)="seleccionado = !seleccionado">Volver..</button>
+    </div>
+</div>
